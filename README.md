@@ -211,10 +211,6 @@ Contributions are welcome! Please follow these steps:
 
 Please make sure your code follows the existing style and that the pipeline runs cleanly before submitting.
 
----
 
-## License
-
----
 
 <p align="center">Made with ❤️ for anime fans and MLOps enthusiasts</p>
