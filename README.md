@@ -10,7 +10,6 @@
 - [Architecture](#architecture)
 - [Tech Stack](#tech-stack)
 - [Project Structure](#project-structure)
-- [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
   - [Running the Pipeline](#running-the-pipeline)
@@ -18,7 +17,6 @@
 - [Docker](#docker)
 - [Kubernetes Deployment](#kubernetes-deployment)
 - [Configuration](#configuration)
-- [Contributing](#contributing)
 
 ## Overview
 
@@ -49,22 +47,6 @@ User Query (Natural Language)
                           ┌────────────────────────┐
                           │  Recommendation Output │
                           └────────────────────────┘
-```
-
-**Pipeline (offline):**
-
-```
-Raw Anime Data (data/)
-      │
-      ▼
-pipeline/build_pipeline.py
-      │  ├─ Data Cleaning & Preprocessing
-      │  ├─ Embedding Generation
-      │  └─ ChromaDB Ingestion
-      ▼
-Persistent Vector Store (chroma_db/)
-```
-
 ---
 
 ## Tech Stack
@@ -85,27 +67,48 @@ Persistent Vector Store (chroma_db/)
 
 ```
 Anime-Recommender-System-LLMOPS/
-├── app/                    # Streamlit frontend application
-├── chroma_db/              # Persistent ChromaDB vector store
-├── config/                 # Configuration files (API keys, model settings)
-├── data/                   # Raw and processed anime datasets
-├── pipeline/               # Data ingestion & embedding pipeline
-│   └── build_pipeline.py   # Entry point to build the vector store
-├── src/                    # Core logic: retrieval, LLM interaction, ranking
-├── utils/                  # Shared utility functions and helpers
-├── main.py                 # Alternate entry point
-├── Dockerfile              # Container image definition
-├── llmops-k8s.yaml         # Kubernetes deployment manifest
-├── pyproject.toml          # Project metadata and build config
-├── requirements.txt        # Python dependencies
-├── setup.py                # Package setup
-└── .python-version         # Pinned Python version
+│
+├── 📁 app/
+│   └── app.py                    # Streamlit frontend application
+│
+├── 📁 chroma_db/                 # Persisted ChromaDB vector store (auto-generated)
+│
+├── 📁 config/
+│   └── config.py                 # Centralised config — API keys, model & app settings
+│
+├── 📁 data/
+│   ├── user_data/                # User interaction and session data
+│   ├── anime_with_synopsis.csv   # Primary dataset with full synopses
+│   └── updated_anime.csv         # Cleaned and enriched anime metadata
+│
+├── 📁 logs/                      # Runtime and pipeline logs
+│
+├── 📁 pipeline/
+│   ├── build_pipeline.py         # Entry point — triggers full ingestion pipeline
+│   └── pipeline.py               # Pipeline orchestration and step definitions
+│
+├── 📁 src/
+│   ├── data_loader.py            # Data loading and preprocessing
+│   ├── prompt_template.py        # LLM prompt engineering templates
+│   ├── recommender.py            # Core recommendation and retrieval logic
+│   └── vectore_store.py          # ChromaDB interface — embed, index & query
+│
+├── 📁 utils/
+│   ├── custom_exception.py       # Custom exception classes
+│   └── logger.py                 # Logging setup and configuration
+│
+├── .env                          # Environment variables (not committed to git)
+├── .gitignore
+├── .python-version               # Pinned Python version
+├── Dockerfile                    # Container image definition
+├── llmops-k8s.yaml               # Kubernetes deployment manifest
+├── main.py                       # CLI entry point
+├── pyproject.toml                # Project metadata and build configuration
+├── requirements.txt              # Python dependencies
+└── setup.py                      # Package setup
 ```
 
 ---
-
-## Getting Started
-
 ### Prerequisites
 
 - Python ≥ 3.10 (see `.python-version`)
@@ -121,7 +124,7 @@ git clone https://github.com/Deebyendu/Anime-Recommender-System-LLMOPS.git
 cd Anime-Recommender-System-LLMOPS
 
 # 2. Install the project in editable mode using uv
-uv pip install -e .
+pip install -e .
 ```
 
 ### Running the Pipeline
@@ -188,29 +191,13 @@ kubectl create secret generic llmops-secrets \
 
 ## Configuration
 
-All model settings, API keys, and environment-specific parameters live in the `config/` directory. Create a `.env` file or update the config files before running the pipeline or the app.
+All settings are managed through `config/config.py` and the `.env` file:
 
-| Parameter            | Description                              |
-| -------------------- | ---------------------------------------- |
-| `LLM_API_KEY`        | API key for the LLM / embedding provider |
-| `EMBEDDING_MODEL`    | Name of the embedding model to use       |
-| `CHROMA_PERSIST_DIR` | Path to persist the ChromaDB database    |
-| `TOP_K`              | Number of recommendations to return      |
+| Variable       | Description                           | Where to Get                                                             |
+| -------------- | ------------------------------------- | ------------------------------------------------------------------------ |
+| `HF_TOKEN`     | Hugging Face API token for embeddings | [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens) |
+| `GROQ_API_KEY` | Groq API key for LLM inference        | [console.groq.com/keys](https://console.groq.com/keys)                   |
 
 ---
-
-## Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/your-feature`
-3. Commit your changes: `git commit -m 'Add your feature'`
-4. Push to the branch: `git push origin feature/your-feature`
-5. Open a Pull Request
-
-Please make sure your code follows the existing style and that the pipeline runs cleanly before submitting.
-
-
 
 <p align="center">Made with ❤️ for anime fans and MLOps enthusiasts</p>
