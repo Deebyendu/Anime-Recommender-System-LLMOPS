@@ -109,7 +109,6 @@ Anime-Recommender-System-LLMOPS/
 ### Prerequisites
 
 - Python ≥ 3.10 (see `.python-version`)
-- [`uv`](https://github.com/astral-sh/uv) package manager
 - Docker (for containerised runs)
 - `kubectl` + a running Kubernetes cluster (for K8s deployment)
 - An LLM API key (e.g. OpenAI / Gemini — configure in `config/`)
