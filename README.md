@@ -160,7 +160,6 @@ Anime-Recommender-System-LLMOPS/
 ├── .python-version               # Pinned Python version
 ├── Dockerfile                    # Container image definition
 ├── llmops-k8s.yaml               # Kubernetes deployment manifest
-├── main.py                       # CLI entry point
 ├── pyproject.toml                # Project metadata and build configuration
 ├── requirements.txt              # Python dependencies
 └── setup.py                      # Package setup
