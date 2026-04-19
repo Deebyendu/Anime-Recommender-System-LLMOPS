@@ -1,8 +1,3 @@
-import sys
-import os
-
-# Point Python to the root directory of your project
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import streamlit as st
 from pipeline.pipeline import AnimeRecommendationPipeline
 from dotenv import load_dotenv
