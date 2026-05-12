@@ -45,13 +45,13 @@ Built with **LLMOps best practices** — structured ingestion pipelines, persist
 ## 🛠️ Tech Stack
 
 | Layer            | Technology                              |
-| ---------------- | --------------------------------------- | --- |
+| ---------------- | --------------------------------------- |
 | Language         | Python 3.10+                            |
 | LLM Inference    | [Groq](https://groq.com/)               |
 | Embeddings       | [Hugging Face](https://huggingface.co/) |
 | Vector Store     | [ChromaDB](https://www.trychroma.com/)  |
 | Frontend         | [Streamlit](https://streamlit.io/)      |
-| Package Manager  | [.venv]                                 |     |
+| Package Manager  | [.venv]                                 |
 | Containerisation | Docker                                  |
 | Orchestration    | Kubernetes                              |
 
