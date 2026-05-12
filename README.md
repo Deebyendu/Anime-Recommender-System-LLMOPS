@@ -85,26 +85,26 @@ The final recommendations are rendered in a clean **Streamlit** interface, where
 
 ```
                         ┌─────────────────────────┐
-                        │      Streamlit UI        │
-                        │       (app/app.py)        │
+                        │      Streamlit UI       │
+                        │       (app/app.py)      │
                         └────────────┬────────────┘
                                      │ Natural Language Query
                                      ▼
                         ┌─────────────────────────┐
-                        │    Recommender Engine    │
-                        │    (src/recommender.py)  │
+                        │    Recommender Engine   │
+                        │    (src/recommender.py) │
                         └────────────┬────────────┘
                                      │ Embed Query
                                      ▼
                         ┌─────────────────────────┐
-                        │   ChromaDB Vector Store  │◄──── Build Pipeline
-                        │       (chroma_db/)        │      (pipeline/)
+                        │   ChromaDB Vector Store │◄──── Build Pipeline
+                        │       (chroma_db/)      │      (pipeline/)
                         └────────────┬────────────┘
                                      │ Top-K Similar Anime
                                      ▼
                         ┌─────────────────────────┐
-                        │   LLM Response Builder   │
-                        │ (src/prompt_template.py) │
+                        │   LLM Response Builder  │
+                        │ (src/prompt_template.py)│
                         └────────────┬────────────┘
                                      │
                                      ▼
