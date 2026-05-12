@@ -13,7 +13,7 @@
 [![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)](https://kubernetes.io/)
 
 </div>
----
+
 🌐 Live Demo
 👉 http://docker-aws-anime-recommendation-1990735088.eu-north-1.elb.amazonaws.com/
 
