@@ -21,12 +21,12 @@
 
 ## 📖 Overview
 
-The **Anime Recommender System** uses Large Language Models (LLMs) combined with semantic vector search to deliver highly relevant anime recommendations from natural language queries. Simply describe what you're in the mood for — the system understands your intent and surfaces the most fitting titles and deployed in AWS.
+The **Anime Recommender System** uses Large Language Models (LLMs) combined with semantic vector search to deliver highly relevant anime recommendations from natural language queries. Simply describe what you're in the mood for — the system understands your intent and surfaces the most fitting titles.
 
 > _"dark psychological thriller with a morally grey protagonist"_
 > _"feel-good slice-of-life with great music"_
 
-Built with **LLMOps best practices** — structured ingestion pipelines, persistent vector storage via ChromaDB, a clean Streamlit frontend, and full Docker + Kubernetes support for production deployments.
+Built with **LLMOps best practices** — structured ingestion pipelines, persistent vector storage via ChromaDB, a clean Streamlit frontend, and full Docker + Kubernetes support for production deployments and deployed in AWS.
 
 ---
 
